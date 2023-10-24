@@ -42,3 +42,6 @@
 ```
 
 得到如下结果：
+ ![return前添加程序](https://github.com/histok/For-operation-System-assignment/blob/main/first%20opera/test1/pic/4.jpg)
+
+ 更验证了之前的说法。

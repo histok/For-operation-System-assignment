@@ -36,6 +36,9 @@
 在return前添加对于golbal的各种操作：
 ```
 {
-  
+  value=value+;
+  printf("brefore return value =%d, *value =%d",value,&value）；
 }
 ```
+
+得到如下结果：

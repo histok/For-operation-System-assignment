@@ -1,6 +1,6 @@
 # _OS_lab_one_
 ## 步骤一
-在运行1-1所给代码后得到以下结果：
+### 在运行1-1所给代码后得到以下结果：
 
 ![初步实验](https://github.com/histok/For-operation-System-assignment/blob/main/first%20opera/test1/pic/1.jpg)
 
@@ -9,7 +9,7 @@
 
 ---
 
-去除 `wait(NULL)` 后，结果如同预料。为父进程先得出结果，子进程之后得出结果：
+### 去除 `wait(NULL)` 后，结果如同预料。为父进程先得出结果，子进程之后得出结果：
 
 ![除去wait后的结果](https://github.com/histok/For-operation-System-assignment/blob/main/first%20opera/test1/pic/2.jpg)
 
@@ -17,7 +17,7 @@
 
 ---
 
-之后，在代码中添加如下程序
+### 之后，在代码中添加如下程序
 ```
 {
   global =0;//设置为全局变量
@@ -33,7 +33,7 @@
 
 ---
 
-在return前添加对于golbal的各种操作：
+### 在return前添加对于golbal的各种操作：
 ```
 {
   value=value+;
@@ -45,3 +45,10 @@
  ![return前添加程序](https://github.com/histok/For-operation-System-assignment/blob/main/first%20opera/test1/pic/4.jpg)
 
  更验证了之前的说法。
+
+---
+
+之后将程序分割，用 `system`和 `exce` 族另外调用文件。 
+
+### system
+

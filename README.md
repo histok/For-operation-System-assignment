@@ -59,3 +59,10 @@
 
 ### exec
 
+![exec](https://github.com/histok/For-operation-System-assignment/blob/main/first%20opera/test1/pic/8.jpg)
+
+与 `system` 不同，`exec`是将原进程替换为他创建的进程。 因此后面父进程不再执行，并且子进程输出的pid与父进程相同。
+
+---
+
+##步骤二

@@ -48,7 +48,14 @@
 
 ---
 
-之后将程序分割，用 `system`和 `exce` 族另外调用文件。 
+之后将程序分割，用 `system`和 `exec` 族另外调用文件。 
 
 ### system
+
+![system](https://github.com/histok/For-operation-System-assignment/blob/main/first%20opera/test1/pic/7.jpg)
+
+通过 `system()` 中输出的pid与父进程中输出的pid不同可以得出，其作用相当于调用了一次 `fork()` 函数，新创建了一个线程，因此父进程能够运行。在本程序中就是父进程创建了子进程，子进程又创建了子子进程，子子进程去执行 `b.out` 。
+
+
+### exec
 

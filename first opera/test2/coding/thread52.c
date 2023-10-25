@@ -6,7 +6,7 @@
 #include <sys/wait.h>
 void *func(void *params){
 	pthread_t tid =pthread_self();
-	system("./b.out");
+	execlp("./b.out",NULL);
 	printf("first tid= %d\n",tid);
 	pthread_exit(0);
 }

@@ -87,6 +87,11 @@
 ![第一次修改2](https://github.com/histok/For-operation-System-assignment/blob/main/first%20opera/test2/pic/4.jpg)
 
 这时候意识到 `sumnum` 对于两个线程来说是临界资源，需要加锁，使其在进入临界区时发生互斥，保证只有一个线程访问。
+修改后重新执行程序，得到了正确的结果。
 
 ![第二次修改](https://github.com/histok/For-operation-System-assignment/blob/main/first%20opera/test2/pic/7.jpg)
+
+---
+
+将 `system` 代码放在线程中运行，可以得到如下结果：
 

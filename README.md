@@ -71,6 +71,7 @@
 
 创建两个线程，并在其中对全局变量 `sumnum` 执行 100000 次不同操作
 
+![未修改](https://github.com/histok/For-operation-System-assignment/blob/main/first%20opera/test2/pic/3.jpg)
 
 但结果并不如同想象中的一样。函数中的输出语句并未执行，且 `sumnum` 的值也并不为0.
 

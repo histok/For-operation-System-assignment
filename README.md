@@ -1,5 +1,5 @@
 # _OS_lab_one_
-## 步骤一
+## 步骤一：process
 ### 在运行1-1所给代码后得到以下结果：
 
 ![初步实验](https://github.com/histok/For-operation-System-assignment/blob/main/first%20opera/test1/pic/1.jpg)
@@ -65,4 +65,13 @@
 
 ---
 
-##步骤二
+## 步骤二：thread
+
+---
+
+创建两个线程，并在其中对全局变量 `sumnum` 执行 100000 次不同操作
+
+
+但结果并不如同想象中的一样。函数中的输出语句并未执行，且 `sumnum` 的值也并不为0.
+
+于是猜测是 `thread` 中的

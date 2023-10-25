@@ -84,6 +84,9 @@
 
 同时也作出另一种修改，将主进程挂起，结果出现了没有接收信号，导致原线程被挂起的情况。
 
+![第一次修改2](https://github.com/histok/For-operation-System-assignment/blob/main/first%20opera/test2/pic/4.jpg)
 
 这时候意识到 `sumnum` 对于两个线程来说是临界资源，需要加锁，使其在进入临界区时发生互斥，保证只有一个线程访问。
+
+![第二次修改](https://github.com/histok/For-operation-System-assignment/blob/main/first%20opera/test2/pic/7.jpg)
 

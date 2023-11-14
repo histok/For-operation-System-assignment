@@ -187,11 +187,14 @@ b.out 执行的新子进程的ID，这是b.out中输出的，因为 `system` 调
 
 ### 软中断通信
 
-补充 `inter_handler`
+补充  `inter_handler` ,通过信号量的触发来使得进程被杀死。
 ```cpp
-    signal(SIGALRM, father_handler);  // 14
-    signal(SIGQUIT, father_handler);  // 3
-    alarm(5);
+    if(signum == SIGALRM ||signum ==SIGQUIT||signum== SIGUSR1||signum==SIGUSR2){
+		  flag =1;
+	  }
+	  else{
+		  printf("[info] error \n");
+	  }
 ```
 
 子进程中

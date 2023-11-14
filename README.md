@@ -372,18 +372,37 @@ int main() {
 ### 运行展示
 
 菜单界面
-<img src="./images/mem/alloc1.png">
+![2-3-1](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-1.jpg)
+
+假如没有设置内存，会默认为为`1024`
+![2-3-2](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-2.jpg)
+
+设置内存为1000
+![2-3-3](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-3.jpg)
+
+内存设置好后就无法再更改
+![2-3-4](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-4.jpg)
+
+没有设置上限，一般为分配内存上限
+![2-3-5](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-5.jpg)
+![2-3-6](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-6.jpg)
 
 <br/>
-如果没有调用 `1`,即分配内存总大小就调用其他，则会提示
-Initilize the allocator first!!!
-
-<img src="./images/mem/alloc2.png">
-
-<br/>
-设置内存为`1024`
-
-<img src="./images/mem/alloc3.png">
+创建一个进程内存大小为100
+![2-3-8](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-8.jpg)
+![2-3-9](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-9.jpg)
+![2-3-10](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-10.jpg)
+![2-3-11](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-11.jpg)
+![2-3-12](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-12.jpg)
+![2-3-13](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-13.jpg)
+![2-3-14](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-14.jpg)
+![2-3-15](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-15.jpg)
+![2-3-16](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-16.jpg)
+![2-3-17](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-17.jpg)
+![2-3-18](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-18.jpg)
+![2-3-19](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-19.jpg)
+![2-3-20](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-20.jpg)
+![2-3-21](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-21.jpg)
 
 <br/>
 创建一个进程内存大小为100

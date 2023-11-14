@@ -387,125 +387,60 @@ int main() {
 ![2-3-5](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-5.jpg)
 ![2-3-6](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-6.jpg)
 
-
 创建一个进程内存大小为100
 ![2-3-8](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-8.jpg)
-![2-3-9](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-9.jpg)
-![2-3-10](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-10.jpg)
-![2-3-11](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-11.jpg)
-![2-3-12](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-12.jpg)
-![2-3-13](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-13.jpg)
-![2-3-14](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-14.jpg)
-![2-3-15](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-15.jpg)
-![2-3-16](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-16.jpg)
-![2-3-17](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-17.jpg)
-![2-3-18](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-18.jpg)
-![2-3-19](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-19.jpg)
-![2-3-20](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-20.jpg)
-![2-3-21](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-21.jpg)
 
-<br/>
-创建一个进程内存大小为100
-
-<img src="./images/mem/alloc4.png">
-
-<br/>
 创建一个进程内存大小为800
+![2-3-9](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-9.jpg)
 
-<img src="./images/mem/alloc5.png">
-
-<br/>
 目前内存布局如下
+![2-3-10](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-10.jpg)
 
-<img src="./images/mem/alloc6.png">
+之后设置内存为950，重新分配内存将100到200分配给2号，再将800-900分配给4号，同时设置算法为BF
+![2-3-15](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-15.jpg)
 
-<br/>
-把进程2的内存中 (300 --> 500)的部分释放
+分配一个大小的10的进程，内存布局如下，可以看到采用了 BF 算法，选择了最小的块, 即后面的那个块去分配这 10 的大小
+![2-3-16](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-16.jpg)
 
-<img src="./images/mem/alloc7.png">
-
-<br/>
-内存布局如下，可以看到进程2目前占有两个块
-
-<img src="./images/mem/alloc8.png">
-
-<br/>
-把进程2的内存中 (500 --> 800)的部分释放
-
-<img src="./images/mem/alloc9.png">
-
-<br/>
-目前内存布局如下
-
-<img src="./images/mem/alloc10.png">
-
-<br/>
-设置算法为 BF
-
-<img src="./images/mem/alloc11.png">
-
-<br/>
-分配一个大小的100的进程
-
-<img src="./images/mem/alloc12.png">
-
-<br/>
-内存布局如下，可以看到采用了 BF 算法，选择了最小的块, 即后面的那个块去分配这 100 的大小
-
-<img src="./images/mem/alloc13.png">
-
-<br/>
 设置算法为FF
+![2-3-17](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-17.jpg)
 
-<img src="./images/mem/alloc14.png">
+重新分配一个大小为10的进程，可以看到根据 FF 算法，内存分配在了最前面的块里
+![2-3-18](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-18.jpg)
 
-<br/>
-分配一个大小为10的进程，可以看到根据 FF 算法，内存分配在了最前面的块里
+设置算法为WF
+![2-3-19](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-19.jpg)
 
-<img src="./images/mem/alloc15.png">
+再分配一个大小为10的进程，可以看到根据 FF 算法，内存分配在了最大面的块里
+![2-3-20](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-20.jpg)
 
-<br/>
-设置为 WF 算法，可以看到分配在了最大的块里
-
-<img src="./images/mem/alloc16.png">
-
-<br/>
-终止进程1
-
-<img src="./images/mem/alloc17.png">
-
-<br/>
-查看内存布局如下，可以看到进程1的内存已经被全部释放
-
-<img src="./images/mem/alloc18.png">
+终止进程2，查看内存布局如下，可以看到进程2的内存已经被全部释放
+![2-3-21](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-21.jpg)
 
 ---
 
 ## Part 3 遇到的问题
 
-在管道程序中，由于 `alarm(5)`, 因此 5s 后父进程收到软中断信号 `SIGALRM`, 父进程向子进程发送信号，子进程接收信号后退出，父进程随之退出，输出如下:
-<img src="./images/sig/sig_alarm1.png">
+在管道程序中，由于未添加 `sleep(1)`, 因此 5s 后父进程收到软中断信号 `SIGALRM`, 父进程向子进程发送信号，子进程接收信号后退出，父进程随之退出，未得到子进程被中断的输出
 
-但是如果在时间内键盘按下 `Ctrl + \`， 向父进程发出信号
-`SIGQUIT`, 则父进程会退出，但是子进程不会打印。
-经过查阅, `Ctrl + \`终端会向所有现在运行中的前台进程发送 `SIGQUIT`, 因此子进程直接退出，不会执行其剩下的语句
-。在子进程里加上
-```cpp
-    signal(SIGQUIT, SIG_IGN);
+但父子进程正常退出，之后经过了解，发现需要 `sleep` ，
+基于子函数一定的程序执行时间。
+因此在函数里加上
+```c
+    sleep(1)
 ```
-使其忽略 `SIGQUIT` 信号后问题解决.
-
+后问题解决
 
 
 ---
 
 ## Part 4 分析和思考
 
-* 在写程序时要注意设计以及功能模块的划分，对于每一个功能要考虑各种情况，保证程序的健壮性.
+学习进程通信与内存管理时，可以思考如何优化系统性能、确保安全性、提高资源利用效率，并将这些概念应用于实际场景。同时，考虑故障排除和调试方法，关注未来发展趋势，以更深刻理解这些概念，并为系统设计和优化做出明智决策。
 
 ---
 
 ## Part 5 Score
 
-自评分: 30
+自评分: 28
 

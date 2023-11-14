@@ -387,7 +387,7 @@ int main() {
 ![2-3-5](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-5.jpg)
 ![2-3-6](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-6.jpg)
 
-<br/>
+
 创建一个进程内存大小为100
 ![2-3-8](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-8.jpg)
 ![2-3-9](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test3/pic/2-3-9.jpg)

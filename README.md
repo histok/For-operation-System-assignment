@@ -365,10 +365,11 @@ int main() {
         // ...
     }
 }
+```
 
 ---
 
-### *运行展示*
+### 运行展示
 
 菜单界面
 <img src="./images/mem/alloc1.png">

@@ -293,19 +293,17 @@ void waiting(int i){
         lockf(fd[0],0,0);  
         printf("%s\n",InPipe);    
 ```
-
+得到结果
+![2-2-1](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test2/pic/2-2-1.jpg)
 在父进程中，如果去掉lockf函数
-```cpp
+```
     // lockf(fd[0],1,0); 
     // .............
     // lockf(fd[0],0,0);  
 ```
 
 则管道读写的互斥和同步出现问题，输出结果如下:
-<img src="./images/pipe/pipe_without_lock.png">
-
-加上lockf函数后读写正常
-<img src="./images/pipe/pipe_with_lock.png">
+![2-2-2](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test2/pic/2-2-2.jpg)
 
 ---
 

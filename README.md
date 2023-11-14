@@ -187,31 +187,63 @@ b.out 执行的新子进程的ID，这是b.out中输出的，因为 `system` 调
 
 ### 软中断通信
 
+
 补充  `inter_handler` ,通过信号量的触发来使得进程被杀死。
-```cpp
-    if(signum == SIGALRM ||signum ==SIGQUIT||signum== SIGUSR1||signum==SIGUSR2){
-		  flag =1;
-	  }
-	  else{
-		  printf("[info] error \n");
-	  }
+```
+	if(signum == SIGALRM ||signum ==SIGQUIT||signum== SIGUSR1||signum==SIGUSR2){
+		flag =1;
+	}
+	else{
+	printf("[info] error \n");
+	}
 ```
 
-子进程中
-```cpp
-    /* child 2 process*/
-    signal(SIGUSR2, child2_handler);
-    // signal(SIGQUIT, SIG_IGN);
-    while (1) sleep(1);
+waiting的补充；
+```
+void waiting(int i){
+	while(!flag){
+		sleep(1);
+	}
+	printf("Child process%d is killed by parent!!\n",i);
+	flag=0;
+}
+```
 
-    /* child 1 process*/
-    signal(SIGUSR1, child1_handler);
-    // signal(SIGQUIT, SIG_IGN);
-    while (1) sleep(1);
+父进程
+```
+			int time=0;
+			alarm(5);
+			while(1){
+				signal(SIGALRM, SIG_IGN);
+				signal(SIGQUIT, inter_handler);
+				printf("[info] time passed: %d\n",++time);
+				if(flag||timeout){
+
+					kill(pid1,SIGUSR1);
+					kill(pid2,SIGUSR2);
+					wait(NULL);
+					wait(NULL);
+
+					printf("[info] Parent process is killed!!\n");
+					exit(0);
+				}
+				if(time==4){
+					timeout =1;
+				}
+				sleep(1);
+			}
+```
+
+子进程
+```
+			signal(SIGUSR2, inter_handler);
+			signal(SIGQUIT,SIG_IGN);
+			signal(SIGALRM,SIG_IGN);
+			waiting(对应的进程数);
 ```
 
 运行程序，由于 `alarm(5)`, 因此 5s 后父进程收到软中断信号 `SIGALRM`, 父进程向子进程发送信号，子进程接收信号后退出，父进程随之退出，输出如下:
-<img src="./images/sig/sig_alarm1.png">
+
 
 但是如果在时间内键盘按下 `Ctrl + \`， 向父进程发出信号
 `SIGQUIT`, 则父进程会退出，但是子进程不会打印。

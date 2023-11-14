@@ -309,102 +309,62 @@ void waiting(int i){
 
 ## Part2 内存分配与回收
 
-实现该部分实验主要有两个类
-<br/>
-`VarSizeAllocMngr` ---> 可变长度分配Manager
-<br/>
-`Allocator` ---> 继承自 `VarSizeAllocMngr`, 并且包装了对于"进程"pid的管理.
+这是一个简单的内存管理系统，用C语言编写。该系统实现了基本的内存分配和释放功能，支持不同的内存分配算法（First Fit、Best Fit、Worst Fit）。
 
----
+### 宏定义
 
-### *VarSizeAllocMngr*
+- `PROCESS_NAME_LEN`: 进程名称的最大长度
+- `MIN_SLICE`: 最小内存块大小
+- `DEFAULT_MEM_SIZE`: 默认内存大小
+- `DEFAULT_MEM_START`: 默认内存起始地址
+- `MA_FF`, `MA_BF`, `MA_WF`: 内存分配算法的宏定义
 
-该类的核心成员如下，其中对于每一个分配`(Allocation)`用一个偏移`(Offset)`和长度`(Size)`来表示, 类似 `std::span`, 对每一个空闲块`(FreeBlock)`也同样如此
+### 全局变量
 
-```cpp
-    using OffsetType = int;
+- `mem_size`: 总内存大小
+- `ma_algorithm`: 当前内存分配算法
+- `pid`: 进程ID
+- `flag`: 标志，用于判断是否已设置过内存大小
 
-    struct FreeBlockInfo;
+### 数据结构
 
-    // Type of the map that keeps memory blocks sorted by their offsets
-    using TFreeBlocksByOffsetMap = std::map<OffsetType, FreeBlockInfo>;
+#### free_block_type
 
-    // Type of the map that keeps memory blocks sorted by their sizes
-    using TFreeBlocksBySizeMap = std::multimap<OffsetType, TFreeBlocksByOffsetMap::iterator>;       
+表示空闲内存块的结构体，包括大小、起始地址和指向下一块空闲内存的指针。
 
-    using AllocatedMap = std::map<OffsetType, OffsetType>; 
+#### allocated_block
 
-    struct FreeBlockInfo {
-        // Block size (no reserved space for the size of allocation)
-        // actually Size == OrderBySizeIt->first
-        OffsetType Size;
-        // Iterator referencing this block in the multimap sorted by the block size
-        TFreeBlocksBySizeMap::iterator OrderBySizeIt; 
+表示已分配内存块的结构体，包括进程ID、大小、起始地址、进程名称和指向下一块已分配内存的指针。
 
-        FreeBlockInfo(OffsetType _Size) : Size(_Size) {}
-    };
-```
+### 函数
 
-其中有三个核心成员
-```cpp
-    TFreeBlocksByOffsetMap m_FreeBlocksByOffset;
-    TFreeBlocksBySizeMap m_FreeBlocksBySize;
-    AllocatedMap m_Allocated;
-```
+- `init_free_block(mem_size)`: 初始化空闲内存块链表
+- `display_menu()`: 显示用户菜单
+- `set_mem_size()`: 设置内存大小
+- `set_algorithm()`: 设置内存分配算法
+- `rearrange(algorithm)`: 根据算法重新排列内存块链表
+- `rearrange_FF()`, `rearrange_BF()`, `rearrange_WF()`: 不同算法的具体实现
+- `new_process()`: 创建新进程并分配内存
+- `mem_compact(sliceSize)`: 压缩内存空间
+- `allocate_mem(ab)`: 分配内存给进程
+- `kill_process()`: 终止进程并释放内存
+- `find_process(pid)`: 根据进程ID查找进程
+- `free_mem(ab)`: 释放已分配的内存
+- `dispose(free_ab)`: 释放已分配的进程
+- `display_mem_usage()`: 显示内存使用情况
 
-* `m_FreeBlocksByOffset`记录每个空闲块, 其索引为空闲块的偏移(即起点).
-* `m_FreeBlocksBySize`其索引为空闲块的大小, 其类型是一个 `std::multimap<...>`, 使用 `multi` 是因为不同空闲块的大小可能一致，在此 map 中保存的块是按大小从小到大排序的，可以用于后续实现三种不同算法的 `Allocate`
-* `m_Allocated` 是一个 `std::map<OffsetType, OffsetType>`, 记录了目前所有已分配的块, 其索引为块的 `Offset`, 值为块的 `Size`
-<br/>
+### 主函数
 
-三种 Allocate 的实现:
-<br/>
-* FF：遍历 `m_FreeBlocksByOffset`, 在容量足够的第一个块中分配
-* BF: 使用 `lower_bound(xxx)` 在 `m_FreeBlocksBySize` 中找到最小的容量足够的块，在其中分配即可
-* WF: 与 BF 恰好相反
+包含一个无限循环，根据用户选择执行相应的功能。
 
-Free的实现:
-<br/>
-* 需要考虑在释放块时，该空闲块能不能与其紧挨的之前的空闲块合并，后者与之后的紧挨的空闲块合并。多判断几种情况即可
-
----
-
-### *Allocator*
-
-其核心数据成员如下:
-```cpp
-    std::set<int> ChildPidList;
-    std::map<int, std::set<int>> Pid2Offsets;
-```
-
-记录了所有存在的子进程的pid以及其该进程所占有的分配块,
-`Pid2Offsets`键值对中的值为块的`Offset`,根据该偏移即可在 `VarSizeAllocMngr` 中的 `m_FreeBlocksByOffset` 里查到该块的长度
-<br/>
-核心方法如下:
-```cpp
-    int AddProcessAndAllocate(int size, Option option = Option::BF);
-
-    int Allocate(int size, Option option = Option::BF);
-
-    void NotDelProcessAndFree(pid_t pid, int offset, int size);
-
-    void DelProcessAndFree(pid_t pid);
-
-    void OutputGraph();
-
-    void Free(pid_t pid, OffsetType Offset, OffsetType Size);
-```
-
-通过枚举类
-```cpp
-    enum class Option : uint8_t
-    {
-        FF = 0,
-        BF,
-        WF
-    };
-```
-来设置不同的分配算法.
+```c
+int main() {
+    // ...
+    while(1) {
+        display_menu();
+        // ...
+    }
+}
 
 ---
 

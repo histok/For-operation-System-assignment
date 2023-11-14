@@ -243,19 +243,17 @@ void waiting(int i){
 ```
 
 运行程序，由于 `alarm(5)`, 因此 5s 后父进程收到软中断信号 `SIGALRM`, 父进程向子进程发送信号，子进程接收信号后退出，父进程随之退出，输出如下:
-
+![2-1-1](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test1/pic/2-1-2.jpg)
 
 但是如果在时间内键盘按下 `Ctrl + \`， 向父进程发出信号
 `SIGQUIT`, 则父进程会退出，但是子进程不会打印。
 经过查阅, `Ctrl + \`终端会向所有现在运行中的前台进程发送 `SIGQUIT`, 因此子进程直接退出，不会执行其剩下的语句
 。在子进程里加上
-```cpp
+```
     signal(SIGQUIT, SIG_IGN);
 ```
 使其忽略 `SIGQUIT` 信号后问题解决.
-
-<img src="./images/sig/sig_quit1.png">
-<img src="./images/sig/sig_quit2.png">
+![2-1-2](https://github.com/histok/For-operation-System-assignment/blob/main/second%20opera/test1/pic/2-1-3.jpg)>
 
 ---
 

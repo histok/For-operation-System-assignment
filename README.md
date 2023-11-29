@@ -453,7 +453,7 @@ int main() {
 
 Ext2的磁盘布局使用了组块的结构, 并且采用了多级索引使得单文件的大小得到了很大的提升.
 
-<img src="./images/fs/ext2.png">
+![3-2-3](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/str.png)
 
 设计和实现基于文件空间的Ext2文件系统时，需要关注以下几个方面：
 
@@ -488,7 +488,7 @@ Ext2的磁盘布局使用了组块的结构, 并且采用了多级索引使得�
 
 简化后的文件系统布局如下:
 
-<img src="./images/fs/loc.png">
+![3-2-2](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/loc.png)
 
 <br/>
 
@@ -515,9 +515,9 @@ Ext2的磁盘布局使用了组块的结构, 并且采用了多级索引使得�
 - 对于每个目录项，如果`file_type`为`FileType::DIR`，则形成一个树形结构。
 - 如果是文件，则成为一个叶子节点，指向其文件实际内容所在的数据块。
 
-<img src="./images/fs/entry.png">
+![3-1-1](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-1.jpg)
 
-<img src="./images/fs/inode.png">
+![3-1-2](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-2.jpg)
 
 ---
 
@@ -525,7 +525,12 @@ Ext2的磁盘布局使用了组块的结构, 并且采用了多级索引使得�
 
 ### ***Run***
 
-<img src="./images/fs/run.png">
+![3-1-3](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-1.jpg)
+![3-1-4](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-1.jpg)
+![3-1-5](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-1.jpg)
+![3-1-6](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-1.jpg)
+![3-1-7](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-1.jpg)
+![3-1-8](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-1.jpg)
 
 
 ## Part 3 遇到的问题

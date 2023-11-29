@@ -525,12 +525,12 @@ Ext2的磁盘布局使用了组块的结构, 并且采用了多级索引使得�
 
 ### ***Run***
 
-![3-1-3](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-1.jpg)
-![3-1-4](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-1.jpg)
-![3-1-5](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-1.jpg)
-![3-1-6](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-1.jpg)
-![3-1-7](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-1.jpg)
-![3-1-8](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-1.jpg)
+![3-1-3](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-3.jpg)
+![3-1-4](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-4.jpg)
+![3-1-5](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-5.jpg)
+![3-1-6](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-6.jpg)
+![3-1-7](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-7.jpg)
+![3-1-8](https://github.com/histok/For-operation-System-assignment/blob/main/third%20opera/pic/3-1-8.jpg)
 
 
 ## Part 3 遇到的问题
